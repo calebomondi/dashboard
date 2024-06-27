@@ -152,12 +152,12 @@ def setup_process(request):
                     usrname=usrname,
                     defaults = {
                         'usrname':usrname,
-                        'llAT':res['access_token'],
-                        'pgAT':res['page_token'],
-                        'igUserId':res['ig_user'],
-                        'fbPageId':fbPgId,
-                        'appID':appId,
-                        'appSecret':appSecret
+                        'llat':res['access_token'],
+                        'pgat':res['page_token'],
+                        'iguserid':res['ig_user'],
+                        'fbpageid':fbPgId,
+                        'appid':appId,
+                        'appsecret':appSecret
                     }
                 )
                 #usr = UsrCredentials(usrname=usrname,llAT=res['access_token'],pgAT=res['page_token'],igUserId=igUsrId,fbPageId=fbPgId,appID=appId,appSecret=appSecret)
