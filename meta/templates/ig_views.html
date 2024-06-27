@@ -1,0 +1,59 @@
+{% extends 'master.html' %}
+
+{% block title%}
+    Instagram Views
+{% endblock %}
+
+{% block content%}
+<div class="topbar">
+    <ul class="top-links">
+        <li class="top-link">
+            <a href="/instagram/dashboard">Dashboard</a>
+        </li>
+        <li class="top-link">
+            <a href="/instagram/views">View</a>
+        </li>
+        <li class="top-link">
+            <a href="/instagram/post">Post</a>
+        </li>
+    </ul>
+</div>
+<div class="ig-views">
+    <div class="vContainer">
+        <table class="ig-table">
+            <thead>
+                <tr>
+                    <th class="tpost">Posts</th>
+                    <th class="trest">Date</th>
+                    <th class="trest">Reach</th>
+                    <th class="trest">Likes</th>
+                    <th class="trest">Comments</th>
+                    <th class="trest">Shares</th>
+                    <th class="trest">Saves</th>
+                    <th class="tview">View</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for post in posts %}
+                <tr>
+                    <td class="tpost">
+                        <img src={{post.imgUrl}} alt="post_image">
+                    </td>
+                    <td class="trest">{{post.date}}</td>
+                    <td class="trest">{{post.reach}}</td>
+                    <td class="trest">{{post.likes}}</td>
+                    <td class="trest">{{post.comments}}</td>
+                    <td class="trest">{{post.shares}}</td>
+                    <td class="trest">{{post.saved}}</td>
+                    <td class="tview">
+                        <a href={{post.postUrl}}>
+                            View
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

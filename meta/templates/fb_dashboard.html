@@ -1,0 +1,188 @@
+{% extends 'master.html' %}
+
+{% block title%}
+    Facebook Dashboard
+{% endblock %}
+
+{% block content%}
+<div class="topbar">
+    <ul class="top-links">
+        <li class="top-link">
+            <a href="/facebook/dashboard">Dashboard</a>
+        </li>
+        <li class="top-link">
+            <a href="/facebook/views">View</a>
+        </li>
+        <li class="top-link">
+            <a href="/facebook/post">Post</a>
+        </li>
+    </ul>
+</div>
+<div class="content-ig">
+    <div class="ig-stats">
+        <div class="title-ig">Site Monitor</div>
+        <div class="ig-stat-container">
+            <div class="ig-stat one">
+                <div class="stat-icon"><i class="fa-solid fa-thumbs-up"></i></div>
+                <div class="stat-name">Page Likes</div>
+                <div class="stat-count">{{data.plikes}}</div>
+            </div>
+            <div class="ig-stat two">
+                <div class="stat-icon"><i class="fa-solid fa-person"></i></div>
+                <div class="stat-name">Followers</div>
+                <div class="stat-count">{{data.followers}}</div>
+            </div>
+            <div class="ig-stat two">
+                <div class="stat-icon"><i class="fa-solid fa-signs-post"></i></div>
+                <div class="stat-name">Posts</div>
+                <div class="stat-count">{{data.posts}}</div>
+            </div>
+            <div class="ig-stat three">
+                <div class="stat-icon"><i class="fa-solid fa-heart"></i></div>
+                <div class="stat-name">Post Likes</div>
+                <div class="stat-count">{{data.likes}}</div>
+            </div>
+            <div class="ig-stat four">
+                <div class="stat-icon"><i class="fa-solid fa-comment"></i></div>
+                <div class="stat-name">Comments</div>
+                <div class="stat-count">{{data.comments}}</div>
+            </div>
+            <div class="ig-stat five">
+                <div class="stat-icon"><i class="fa-solid fa-share"></i></div>
+                <div class="stat-name">Shares</div>
+                <div class="stat-count">{{data.shares}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="ig-posts">
+        <div class="title-ig">Post Insights</div>
+        <div class="ig-posts-container">
+            <div class="ig-post">
+                <div class="post-title">
+                    Last 24hrs
+                </div>
+                <div class="impressions insights">
+                    <p class="iname">Page Impressions</p>
+                    <p class="icount">{{last.pgImpress}}</p>
+                </div>
+                <div class="reach insights">
+                    <p class="iname">Pay Page Impressions</p>
+                    <p class="icount">{{last.pgImpressPaid}}</p>
+                </div>
+                <div class="prof-views insights">
+                    <p class="iname">Org Page Impressions</p>
+                    <p class="icount">{{last.pgImpressOrg}}</p>
+                </div>
+                <div class="totInteraction insights">
+                    <p class="iname">Post Impressions</p>
+                    <p class="icount">{{last.poImpress}}</p>
+                </div>
+                <div class="likes insights">
+                    <p class="iname">Content Clicks</p>
+                    <p class="icount">{{last.contClicks}}</p>
+                </div>
+                <div class="shares insights">
+                    <p class="iname">CTA clicks</p>
+                    <p class="icount">{{last.ctaCont}}</p>
+                </div>
+                <div class="comments insights">
+                    <p class="iname">Daily Page Follows</p>
+                    <p class="icount">{{last.dailyFol}}</p>
+                </div>
+                <div class="shares insights">
+                    <p class="iname">Random</p>
+                    <p class="icount">0</p>
+                </div>
+            </div>
+            <div class="ig-post">
+                <div class="post-title">
+                    Recently shared
+                </div>
+                <div class="ig-img">
+                    <a href={{recent.permalink_url}}>
+                        <img src={{recent.full_picture}} alt="Recent post" class="ig-image-post">
+                    </a>
+                </div>
+                <div class="ig-likes my-stats">
+                    <p class="iname">Likes</p>
+                    <p class="icount">{{recent.likes.summary.total_count}}</p>
+                </div>
+                <div class="ig-comments my-stats">
+                    <p class="iname">Comments</p>
+                    <p class="icount">{{recent.comments.summary.total_count}}</p>
+                </div>
+                <div class="ig-shares my-stats">
+                    <p class="iname">Shares</p>
+                    <p class="icount">{{recent.shares}}</p>
+                </div>
+            </div>
+            <div class="ig-post">
+                <div class="post-title">
+                    Most Commented
+                </div>
+                <div class="ig-img">
+                    <a href={{commented.postUrl}}>
+                        <img src={{commented.imgUrl}} alt="Recent post" class="ig-image-post">
+                    </a>
+                </div>
+                <div class="ig-comments my-stats">
+                    <p class="iname">Comments</p>
+                    <p class="icount">{{commented.comments}}</p>
+                </div>
+                <div class="ig-likes my-stats">
+                    <p class="iname">Likes</p>
+                    <p class="icount">{{commented.likes}}</p>
+                </div>
+                <div class="ig-shares my-stats">
+                    <p class="iname">Shares</p>
+                    <p class="icount">{{commented.shares}}</p>
+                </div>
+            </div>
+            <div class="ig-post">
+                <div class="post-title">
+                    Most Liked
+                </div>
+                <div class="ig-img">
+                    <a href={{liked.postUrl}}>
+                        <img src={{liked.imgUrl}} alt="Recent post" class="ig-image-post">
+                    </a>
+                </div>
+                <div class="ig-likes my-stats">
+                    <p class="iname">Likes</p>
+                    <p class="icount">{{liked.likes}}</p>
+                </div>
+                <div class="ig-comments my-stats">
+                    <p class="iname">Comments</p>
+                    <p class="icount">{{liked.comments}}</p>
+                </div>
+                <div class="ig-shares my-stats">
+                    <p class="iname">Shares</p>
+                    <p class="icount">{{liked.shares}}</p>
+                </div>
+            </div>
+            <div class="ig-post">
+                <div class="post-title">
+                    Most Shared
+                </div>
+                <div class="ig-img">
+                    <a href={{shared.postUrl}}>
+                        <img src={{shared.imgUrl}} alt="Recent post" class="ig-image-post">
+                    </a>
+                </div>
+                <div class="ig-shares my-stats">
+                    <p class="iname">Shares</p>
+                    <p class="icount">{{shared.shares}}</p>
+                </div>
+                <div class="ig-likes my-stats">
+                    <p class="iname">Likes</p>
+                    <p class="icount">{{shared.likes}}</p>
+                </div>
+                <div class="ig-comments my-stats">
+                    <p class="iname">Comments</p>
+                    <p class="icount">{{shared.comments}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

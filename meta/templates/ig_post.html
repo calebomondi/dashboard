@@ -1,0 +1,29 @@
+{% extends 'master.html' %}
+
+{% block title%}
+    Post In Instagram
+{% endblock %}
+
+{% block content%}
+<div class="topbar">
+    <ul class="top-links">
+        <li class="top-link">
+            <a href="/instagram/dashboard">Dashboard</a>
+        </li>
+        <li class="top-link">
+            <a href="/instagram/views">View</a>
+        </li>
+        <li class="top-link">
+            <a href="/instagram/post">Post</a>
+        </li>
+    </ul>
+</div>
+<div class="ig-make-post">
+    <form method="post" enctype="multipart/form-data" id="postFormIg">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" id="submitBtn" onclick="showHidden()">post</button>
+    </form>
+    <div id="message">Posting ...</div>
+</div>
+{% endblock %}

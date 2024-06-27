@@ -1,0 +1,19 @@
+{% extends 'master.html' %}
+
+{% block title%}
+    Post To All
+{% endblock %}
+
+{% block content%}
+<div class="topbar">
+    
+</div>
+<div class="ig-make-post">
+    <form method="post" enctype="multipart/form-data" id="postFormAll">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" id="submitBtn" onclick="showHidden()">post</button>
+    </form>
+    <div id="message">Posting ...</div>
+</div>
+{% endblock %}

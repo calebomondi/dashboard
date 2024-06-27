@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}{% endblock %}</title>
+    <!--styles-->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'ig.css' %}">
+    <link rel="stylesheet" href="{% static 'ig_post.css' %}">
+    <link rel="stylesheet" href="{% static 'ig_view.css' %}">
+    <link rel="stylesheet" href="{% static 'setup.css' %}">
+    <!--icons-->
+    <script src="https://kit.fontawesome.com/85b7f6b192.js" crossorigin="anonymous"></script>
+    <!--For Form Submission-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body>
+    <div class="main-l">
+        <div class="img-logo">
+            <a href="/"><img src="{% static 'images/zen.png' %}" alt=""></a>
+        </div>
+        <div class="siteslinks">
+            <div class="sitelink" id="fbSite">
+                <i class="fa-brands fa-square-facebook"></i><a href="/facebook/dashboard" id="fbDash">Facebook</a>
+            </div>
+            <div class="sitelink" id="igSite">
+                <i class="fa-brands fa-instagram"></i><a href="/instagram/dashboard" id="igDash">Instagram</a>
+            </div>
+            <div class="sitelink" id="allSite">
+                <i class="fa-solid fa-shapes"></i></i><a href="/all/post" id="allDash">All Apps</a>
+            </div>
+        </div>
+        <div class="settings">
+            <dic class="sitelink setting" id="setSite">
+                <i class="fa-solid fa-gear"></i><a href="/setup/" id="setDash">Settings</a>
+            </dic>
+        </div>
+    </div>
+    <div class="main-r">
+        {% block content%}{% endblock %}
+    </div>
+
+    <script src="{% static 'script.js' %}"></script>
+    <script>
+        var postAll = "{% url 'all-process-form' %}";
+        var postFb = "{% url 'fb-process-form' %}";
+        var postIg = "{% url 'ig-process-form' %}";
+        var setupUrl = "{% url 'set-up-process' %}";
+    </script>
+</body>
+</html>

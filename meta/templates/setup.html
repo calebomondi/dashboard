@@ -1,0 +1,19 @@
+{% extends 'master.html' %}
+
+{% block title%}
+    Setup
+{% endblock %}
+
+{% block content%}
+<div class="topbar">
+    
+</div>
+<div class="ig-make-post">
+    <form method="post" id="postFormSet">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" id="submitBtn" onclick="showHidden()">submit</button>
+    </form>
+    <div id="message">Processing ...</div>
+</div>
+{% endblock %}

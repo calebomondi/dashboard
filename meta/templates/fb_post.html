@@ -1,0 +1,29 @@
+{% extends 'master.html' %}
+
+{% block title%}
+    Post In FaceBook
+{% endblock %}
+
+{% block content%}
+<div class="topbar">
+    <ul class="top-links">
+        <li class="top-link">
+            <a href="/facebook/dashboard">Dashboard</a>
+        </li>
+        <li class="top-link">
+            <a href="/facebook/views">View</a>
+        </li>
+        <li class="top-link">
+            <a href="/facebook/post">Post</a>
+        </li>
+    </ul>
+</div>
+<div class="ig-make-post">
+    <form method="post" enctype="multipart/form-data" id="postFormFb">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" id="submitBtn" onclick="showHidden()">post</button>
+    </form>
+    <div id="message">Posting ...</div>
+</div>
+{% endblock %}
