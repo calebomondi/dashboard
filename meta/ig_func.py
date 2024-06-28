@@ -191,11 +191,12 @@ def getPostsData():
         for mediaObj in mediaObjArr:
             print(mediaObj['id'])
             #media insites
-            url_media = f'https://graph.facebook.com/{mediaObj['id']}/insights?metric={metrics}&access_token={config.igAT}'
+            id = mediaObj['id']
+            url_media = f'https://graph.facebook.com/{id}/insights?metric={metrics}&access_token={config.igAT}'
             media_info = requests.get(url_media).json()
             data.append(media_info)
             #post link and short code
-            url_link = f'https://graph.facebook.com/v15.0/{mediaObj['id']}?fields={fields}&access_token={config.igAT}'
+            url_link = f'https://graph.facebook.com/v15.0/{id}?fields={fields}&access_token={config.igAT}'
             post_url = requests.get(url_link).json()
             links.append(post_url)
     
@@ -234,8 +235,8 @@ def makePost(imgUrl,caption):
     #make post 
     if 'id' in container_id:
         print(f"container-id: {container_id['id']}")
-
-        url2 = f'https://graph.facebook.com/v19.0/{config.ig_user_id}/media_publish?creation_id={container_id['id']}&access_token={config.igAT}'
+        id = container_id['id']
+        url2 = f'https://graph.facebook.com/v19.0/{config.ig_user_id}/media_publish?creation_id={id}&access_token={config.igAT}'
         media_id = requests.post(url2).json()
 
         if 'id' in media_id:
