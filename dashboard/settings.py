@@ -1,4 +1,5 @@
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -11,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-f#puhp54^&+og9xwe(7-#ae0r$m@)^bvwv=pckie#owhdp%hc6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -62,18 +63,18 @@ WSGI_APPLICATION = 'dashboard.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
+        'NAME': 'zendawa',
         'USER': 'postgres',
-        'PASSWORD': 'rGkOwBrApcvhdARDfpXctTUcYVqXglJY',
-        'HOST': 'roundhouse.proxy.rlwy.net',  # Or your database host
-        'PORT': '48347',       # Default PostgreSQL port
+        'PASSWORD': 'kAleb15@',
+        'HOST': 'localhost', 
+        'PORT': '5432',       
     }
 }
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -81,6 +82,12 @@ DATABASES = {
     }
 }
 '''
+
+DATABASES = {
+    'default': dj_database_url.parse('postgresql://zendawa_user:nhfZW7djCEWFyEZHsjqTc4mpuRPRiu8G@dpg-cpv6uddumphs73c6rrkg-a.oregon-postgres.render.com/zendawa'),
+}
+
+#DATABASES['default'] = dj_database_url.parse('postgresql://zendawa_user:nhfZW7djCEWFyEZHsjqTc4mpuRPRiu8G@dpg-cpv6uddumphs73c6rrkg-a.oregon-postgres.render.com/zendawa')
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

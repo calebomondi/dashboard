@@ -9,3 +9,6 @@ class UsrCredentials(models.Model):
     fbpageid = models.IntegerField()
     appid = models.IntegerField()
     appsecret = models.CharField(max_length=200)
+
+    class Meta:
+        db_table = 'meta_usrcredentials'
