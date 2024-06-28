@@ -34,9 +34,9 @@ def totalCLS():
             post_likes = 0
             post_comments = 0
             post_shares = 0
-            print(mediaObj['id'])
+            id = mediaObj['id']
             #media insites
-            url_media = f'https://graph.facebook.com/{mediaObj['id']}/insights?metric={metrics}&access_token={config.igAT}'
+            url_media = f'https://graph.facebook.com/{id}/insights?metric={metrics}&access_token={config.igAT}'
             media_info = requests.get(url_media).json()
             for dat in media_info['data']:
                 if dat['name'] == 'likes':
