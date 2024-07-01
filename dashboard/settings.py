@@ -12,9 +12,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-f#puhp54^&+og9xwe(7-#ae0r$m@)^bvwv=pckie#owhdp%hc6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -84,7 +84,7 @@ DATABASES = {
 '''
 
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://zendawa_user:nhfZW7djCEWFyEZHsjqTc4mpuRPRiu8G@dpg-cpv6uddumphs73c6rrkg-a/zendawa'),
+    'default': dj_database_url.parse('postgresql://zendawa_user:nhfZW7djCEWFyEZHsjqTc4mpuRPRiu8G@dpg-cpv6uddumphs73c6rrkg-a.oregon-postgres.render.com/zendawa'),
 }
 
 #DATABASES['default'] = dj_database_url.parse('postgresql://zendawa_user:nhfZW7djCEWFyEZHsjqTc4mpuRPRiu8G@dpg-cpv6uddumphs73c6rrkg-a.oregon-postgres.render.com/zendawa')

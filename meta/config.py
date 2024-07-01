@@ -2,7 +2,7 @@ from .models import UsrCredentials
 
 #get user & details
 user = UsrCredentials.objects.get(usrname='zen')
-
+print(user)
 #instagram
 igAT = user.llat
 ig_user_id = user.iguserid
